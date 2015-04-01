@@ -16,12 +16,12 @@ void linear_best_worst(){
 	BOOL err;
 
 	CHECK_TIME_START;
-//	for (x = 0; x < LOOP_COUNT; x++) {
+	for (x = 0; x < LOOP_COUNT; x++) {
 		result = Find_Best_Worst(input, 0, data_size);
 
 //		if (x % (LOOP_COUNT / 10) == 0) printf("*");
 //		printf("Selecting Result --> input[%d] : %d, input[%d] : %d\n", result[0], input[result[0]], result[1], input[result[1]]);
-//	}
+	}
 	CHECK_TIME_END(time, err);
 
 //	printf(" Calc Time = %.6fms\n", time / LOOP_COUNT);

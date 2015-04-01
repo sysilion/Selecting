@@ -8,6 +8,8 @@
 
 #include "selecting.h"
 
+int pivot_loc;
+
 void ith_best() {
 	extern int *input;
 	int i, x, result;
@@ -19,12 +21,14 @@ void ith_best() {
 	double time;
 	BOOL err;
 
+	int search_nth = 2;
+
 	CHECK_TIME_START;
-//	for (x = 0; x < LOOP_COUNT; x++) {
-		result = Find_ith_Best(input, 0, data_size, 2);
+	for (x = 0; x < LOOP_COUNT; x++) {
+		result = Find_ith_Best(input, 0, data_size-1, search_nth);
 //		if (x % (LOOP_COUNT / 10) == 0) printf("*");
-//		printf("Selecting Result --> input[%d] : %d\n", result, input[result]);
-//	}ad
+//		printf("Selecting Result %dth --> input[%d] : %d\n", search_nth, result, input[result]);
+	}
 	CHECK_TIME_END(time, err);
 
 //	printf(" Calc Time = %.6fms\n", time/ LOOP_COUNT);
@@ -32,24 +36,39 @@ void ith_best() {
 }
 
 int Find_ith_Best(int array[], int start, int end, int i){
-	int result;
+	extern double factor;
+	int index = (int)(rand()*factor)%end + 1;
+	pivot_loc = Split(array, start, end, index);
 
-//	result = Split(array, );
-
-	return result;
+	if (end - pivot_loc < i-1){
+		pivot_loc = Find_ith_Best(array, start, pivot_loc-1, i-(end-pivot_loc+1));
+	} else if (end - pivot_loc > i-1) {
+		pivot_loc = Find_ith_Best(array, pivot_loc + 1, end, i);
+	} else {
+		return pivot_loc;
+	}
 }
 
 int Split(int array[], int start, int end, int pivot_loc) {
-	int mid = floor((start + end) / 2);
-	int left = Find_Max(array, start, mid);
-	int right = Find_Max(array, mid + 1, end);
+	int i;
+	int pivot = array[pivot_loc];
+	int temp = array[start];
+	array[start] = array[pivot_loc];
+	array[pivot_loc] = temp;
+	pivot_loc = start;
 
-	if (array[left] > array[right]) {
-		array[left] = array[right];
-		return Find_Max(array, start, mid);
-	} else {
-		array[right] = array[left];
-		return Find_Max(array, mid + 1, end);
+	for (i = start+1; i < end; i++){
+		if (pivot > array[i]){
+			pivot_loc++;
+			temp = array[i];
+			array[i] = array[pivot_loc];
+			array[pivot_loc] = temp;
+		}
 	}
+	temp = array[start];
+	array[start] = array[pivot_loc];
+	array[pivot_loc] = temp;
+
+	return pivot_loc;
 }
 

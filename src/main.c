@@ -47,8 +47,6 @@ int main(){
 		input[i] = i+1;
 	}
 
-
-
 	switch(go){
 	case 1:
 		linear_first();
@@ -66,7 +64,7 @@ int main(){
 		dc_best_worst();
 		break;
 	case 6:
-//		pivot();
+		ith_best();
 		break;
 	case 7:
 		linear_first();
@@ -74,7 +72,7 @@ int main(){
 		dc_second();
 		linear_best_worst();
 		dc_best_worst();
-//		pivot();
+		ith_best();
 		break;
 	}
 

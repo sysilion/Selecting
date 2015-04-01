@@ -19,12 +19,12 @@ void linear_first() {
 	BOOL err;
 
 	CHECK_TIME_START;
-//	for (x = 0; x < LOOP_COUNT; x++) {
+	for (x = 0; x < LOOP_COUNT; x++) {
 		result = Find_Max(input, 0, data_size);
 
 //		if (x % (LOOP_COUNT / 10) == 0) printf("*");
 //		printf("Selecting Result --> input[%d] : %d\n", result, input[result]);
-//	}
+	}
 	CHECK_TIME_END(time, err);
 
 //	printf(" Calc Time = %.6fms\n", time / LOOP_COUNT);

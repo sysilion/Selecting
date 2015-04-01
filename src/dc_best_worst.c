@@ -21,11 +21,11 @@ void dc_best_worst(){
 	BOOL err;
 
 	CHECK_TIME_START;
-//	for (x = 0; x < LOOP_COUNT; x++) {
-		result = Find_Best_Worst_DC(input, 0, data_size-1);
+	for (x = 0; x < LOOP_COUNT; x++) {
+		result = Find_Best_Worst_DC(input, 0, data_size);
 //		if (x % (LOOP_COUNT / 10) == 0) printf("*");
 //		printf("Selecting Result --> input[%d] : %d, input[%d] : %d\n", result.worst, input[result.worst], result.best, input[result.best]);
-//	}
+	}
 	CHECK_TIME_END(time, err);
 
 //	printf(" Calc Time = %.6fms\n", time/ LOOP_COUNT);

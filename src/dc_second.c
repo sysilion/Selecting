@@ -33,7 +33,7 @@ void dc_second() {
 	CHECK_TIME_END(time, err);
 
 //	printf(" Calc Time = %.6fms\n", time/ LOOP_COUNT);
-	printf("%.6f\n", time / LOOP_COUNT);
+	printf("%.6f\n", time);
 }
 
 int Find_Second_Max_DC(int array[], int start, int end) {
