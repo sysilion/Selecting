@@ -17,7 +17,12 @@
 #define CHECK_TIME_START __int64 freq, start, end; if (QueryPerformanceFrequency((LARGE_INTEGER*)&freq)) {QueryPerformanceCounter((LARGE_INTEGER*)&start);
 #define CHECK_TIME_END(a,b) QueryPerformanceCounter((LARGE_INTEGER*)&end); a=(float)((double)(end - start)/freq*1000); b=TRUE; } else b=FALSE;
 
-#define LOOP_COUNT 1000 //
+#define LOOP_COUNT 100 //
+
+typedef struct B_W{
+	int best;
+	int worst;
+}BW;
 
 void linear_first();
 int Find_Max(int array[], int start, int end);
@@ -27,5 +32,12 @@ int Find_Second_Max(int array[], int start, int end);
 
 void dc_second();
 int Find_Second_Max_DC(int array[], int start, int end);
+
+void linear_best_worst();
+int* Find_Best_Worst(int array[], int start, int end);
+
+void dc_best_worst();
+BW Find_Best_Worst_DC(int array[], int start, int end);
+
 
 #endif /* SELECTING_H_ */

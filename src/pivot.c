@@ -1,13 +1,13 @@
 /*
- * dc_second.c
+ * pivot.c
  *
- *  Created on: 2015. 3. 26.
+ *  Created on: 2015. 4. 1.
  *      Author: Administrator
  */
 
 #include "selecting.h"
 
-void dc_second() {
+void pivot(){
 	extern int *input;
 	int i, x, result;
 
@@ -36,16 +36,7 @@ void dc_second() {
 	printf("%.6f\n", time / LOOP_COUNT);
 }
 
-int Find_Second_Max_DC(int array[], int start, int end) {
-	int mid = floor((start + end) / 2);
-	int left = Find_Max(array, start, mid);
-	int right = Find_Max(array, mid + 1, end);
+int Find_Second_Max_Pivot(int array[], int start, int end, int x){
 
-	if (array[left] > array[right]) {
-		array[left] = array[right];
-		return Find_Max(array, start, mid);
-	} else {
-		array[right] = array[left];
-		return Find_Max(array, mid + 1, end);
-	}
+	return 0;
 }

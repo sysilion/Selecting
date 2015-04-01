@@ -1,13 +1,14 @@
 /*
- * dc_second.c
+ * ith_best.c
  *
- *  Created on: 2015. 3. 26.
+ *  Created on: 2015. 3. 30.
  *      Author: Administrator
  */
 
+
 #include "selecting.h"
 
-void dc_second() {
+void ith_best() {
 	extern int *input;
 	int i, x, result;
 
@@ -18,25 +19,27 @@ void dc_second() {
 	double time;
 	BOOL err;
 
-	int copy_input[data_size];
-	for (i = 0; i < data_size; i++){
-		copy_input[i] = input[i];
-	}
-
 	CHECK_TIME_START;
 //	for (x = 0; x < LOOP_COUNT; x++) {
-
-		result = Find_Second_Max_DC(copy_input, 0, data_size);
+		result = Find_ith_Best(input, 0, data_size, 2);
 //		if (x % (LOOP_COUNT / 10) == 0) printf("*");
 //		printf("Selecting Result --> input[%d] : %d\n", result, input[result]);
-//	}
+//	}ad
 	CHECK_TIME_END(time, err);
 
 //	printf(" Calc Time = %.6fms\n", time/ LOOP_COUNT);
 	printf("%.6f\n", time / LOOP_COUNT);
 }
 
-int Find_Second_Max_DC(int array[], int start, int end) {
+int Find_ith_Best(int array[], int start, int end, int i){
+	int result;
+
+//	result = Split(array, );
+
+	return result;
+}
+
+int Split(int array[], int start, int end, int pivot_loc) {
 	int mid = floor((start + end) / 2);
 	int left = Find_Max(array, start, mid);
 	int right = Find_Max(array, mid + 1, end);
@@ -49,3 +52,4 @@ int Find_Second_Max_DC(int array[], int start, int end) {
 		return Find_Max(array, mid + 1, end);
 	}
 }
+

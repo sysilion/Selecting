@@ -20,7 +20,10 @@ int main(){
 	printf("\n\t1. Linear First Best Select");
 	printf("\n\t2. Linear Second Best Select");
 	printf("\n\t3. DC Second Best Select");
-	printf("\n\t4. ALL Select");
+	printf("\n\t4. Linear Best Worst Select");
+	printf("\n\t5. DC Best Worst Select");
+	printf("\n\t6. Pivot Second Best Select");
+	printf("\n\t7. ALL Select");
 	printf("\n\t");
 	printf("\n\t");
 
@@ -57,9 +60,21 @@ int main(){
 		dc_second();
 		break;
 	case 4:
+		linear_best_worst();
+		break;
+	case 5:
+		dc_best_worst();
+		break;
+	case 6:
+//		pivot();
+		break;
+	case 7:
 		linear_first();
 		linear_second();
 		dc_second();
+		linear_best_worst();
+		dc_best_worst();
+//		pivot();
 		break;
 	}
 
